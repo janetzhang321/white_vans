@@ -24,7 +24,22 @@ HW11 -- Wrapping It Up
   ones, and the array is sorted.)
   BIG-OH CLASSIFICATION OF ALGORITHM:
   O(n log(n))
+  Our runtime classification of mergesort is: n*log(n). We think the log(n) 
+comes from splitting the array, and the linear runtime comes from the merging 
+of the arrays.
+
+If n is the length of the array, then the depth of the binary decision tree
+would be log(n) (As Aparna mentioned on her post to Piazza). Therefore, 
+there is a logarithmic correlation between the length of the array and the 
+number of steps it takes the split the array into arrays of length=1.
+
+During the merging of the arrays, every element is “touched” once when 
+deciding the order of the elements in the merged list, and it is through this
+action that the linear aspect of the big O is produced. Although it isn’t 
+exactly following a runtime of O(n), we follow the rule where classifications 
+similar to this run-time are “reduced” down to a general form of O(n).
   //log base 2
+
   Mean execution times for dataset of size n:
   Batch size: 10
   n=1       time: 3660.0 ns
