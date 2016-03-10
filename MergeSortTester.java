@@ -24,19 +24,19 @@ HW11 -- Wrapping It Up
   ones, and the array is sorted.)
   BIG-OH CLASSIFICATION OF ALGORITHM:
   O(n log(n))
-  Our runtime classification of mergesort is: n*log(n). We think the log(n) 
-comes from splitting the array, and the linear runtime comes from the merging 
+  Our runtime classification of mergesort is: n*log(n). We think the log(n)
+comes from splitting the array, and the linear runtime comes from the merging
 of the arrays.
 
 If n is the length of the array, then the depth of the binary decision tree
-would be log(n) (As Aparna mentioned on her post to Piazza). Therefore, 
-there is a logarithmic correlation between the length of the array and the 
+would be log(n) (As Aparna mentioned on her post to Piazza). Therefore,
+there is a logarithmic correlation between the length of the array and the
 number of steps it takes the split the array into arrays of length=1.
 
-During the merging of the arrays, every element is “touched” once when 
+During the merging of the arrays, every element is “touched” once when
 deciding the order of the elements in the merged list, and it is through this
-action that the linear aspect of the big O is produced. Although it isn’t 
-exactly following a runtime of O(n), we follow the rule where classifications 
+action that the linear aspect of the big O is produced. Although it isn’t
+exactly following a runtime of O(n), we follow the rule where classifications
 similar to this run-time are “reduced” down to a general form of O(n).
   //log base 2
 
@@ -68,7 +68,23 @@ public class MergeSortTester
 	for(int x=0;x<n;x++){j[n]=(int)(Math.random()*100);}
     }
 
-    public static void main( String[] args ) 
+    public static double tester(int[] arr) {
+        double beginning=System.nanoTime();
+    	MergeSort.sort(arr);
+    	double end=System.nanoTime();
+    	return end-beginning;
+    }
+    public static void findMean(int[] arr, int batchSize){
+        double mean=0;
+        for(int x = 0; x<batchSize; x++){
+            mean+=tester(arr);
+
+        }
+        System.out.print("Avg time to sort length" + arr.length + ": " );
+        System.out.println(mean/(batchSize));
+
+    }
+    public static void main( String[] args )
     {
 	MergeSort a=new MergeSort();
 	int[] batch1={1};
@@ -80,7 +96,7 @@ public class MergeSortTester
 	int[] batch5=new int[1000000];
 	//pop(batch5, batch5.length-1);
 
-		
+/*
 	double beginning=System.nanoTime();
 	a.sort(batch1);
 	double end=System.nanoTime();
@@ -92,26 +108,32 @@ public class MergeSortTester
 	end=System.nanoTime();
 	System.out.print("Time to sort length10: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.nanoTime();
 	a.sort(batch3);
 	end=System.nanoTime();
 	System.out.print("Time to sort length100: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.nanoTime();
 	a.sort(batch4);
 	end=System.nanoTime();
 	System.out.print("Time to sort length10000: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.currentTimeMillis();
 	a.sort(batch5);
 	end=System.currentTimeMillis();
 	System.out.print("Time to sort length1000000: " );
 	System.out.println(end-beginning);
+*/
 
-    }//end main
+findMean(batch1,10);
+findMean(batch2,10);
+findMean(batch3,10);
+findMean(batch5,10);
+
+}//end main
 
 
 }//end class
