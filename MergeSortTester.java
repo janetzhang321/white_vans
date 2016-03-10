@@ -20,9 +20,11 @@ public class MergeSortTester
 
     /******************************
      * execution time analysis 
-     * <INSERT YOUR DESCRIPTION HERE OF 
-     *  YOUR APPARATUS FOR GENERATING EXECUTION 
-     *  TIME DATA...>
+     * To calculate the time it takes for the function,
+     * we set the beginning time as System.currentTimeMillis
+     * then we find the end time by calling the same command
+     * Then we find the total time it took for mergesort by 
+     * subtracting beginning from end time
      ******************************/
     public static void main( String[] args ) 
     {
