@@ -17,11 +17,11 @@
   //log base 2
   Mean execution times for dataset of size n:
   Batch size: <# of times each dataset size was run>
-  n=1       time: 0.0
-  n=10      time: 0.0
-  n=100     time: 0.1
+  n=1       time: 2816.0 ns
+  n=10      time: 16128.0 ns
+  n=100     time: 189952.0 ns
   ...
-  n=<huge>  time: 7510.0
+  n=<huge>  time: 2.47575808E8 ns
   ANALYSIS:
   <INSERT YOUR RESULTS ANALYSIS HERE>
   ======================================*/
@@ -39,7 +39,8 @@ public class MergeSortTester
     public static void pop(int[] j, int n){
 	for(int x=0;x<n;x++){j[n]=(int)(Math.random()*100);}
     }
-    public static void main( String[] args )
+
+    public static void main( String[] args ) 
     {
 	MergeSort a=new MergeSort();
 	int[] batch1={1};
@@ -51,37 +52,38 @@ public class MergeSortTester
 	int[] batch5=new int[1000000];
 	//pop(batch5, batch5.length-1);
 
-
-	double beginning=System.currentTimeMillis();
+	
+	double beginning=System.nanoTime();
 	a.sort(batch1);
-	double end=System.currentTimeMillis();
+	double end=System.nanoTime();
 	System.out.print("Time to sort length1: " );
 	System.out.println(end-beginning);
 
-	beginning=System.currentTimeMillis();
+	beginning=System.nanoTime();
 	a.sort(batch2);
-	end=System.currentTimeMillis();
+	end=System.nanoTime();
 	System.out.print("Time to sort length10: " );
 	System.out.println(end-beginning);
-
-	beginning=System.currentTimeMillis();
+	
+	beginning=System.nanoTime();
 	a.sort(batch3);
-	end=System.currentTimeMillis();
+	end=System.nanoTime();
 	System.out.print("Time to sort length100: " );
 	System.out.println(end-beginning);
-
-	beginning=System.currentTimeMillis();
+	
+	beginning=System.nanoTime();
 	a.sort(batch4);
-	end=System.currentTimeMillis();
+	end=System.nanoTime();
 	System.out.print("Time to sort length10000: " );
 	System.out.println(end-beginning);
-
-	beginning=System.currentTimeMillis();
+	
+	beginning=System.nanoTime();
 	a.sort(batch5);
-	end=System.currentTimeMillis();
+	end=System.nanoTime();
 	System.out.print("Time to sort length1000000: " );
 	System.out.println(end-beginning);
 
     }//end main
+
 
 }//end class
