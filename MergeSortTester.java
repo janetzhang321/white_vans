@@ -1,9 +1,20 @@
 /*======================================
   class MergeSortTester
   ALGORITHM:
-  <INSERT YOUR DISTILLATION OF ALGO HERE>
+  When one runs a sort on a certain aray, the sort method is first called.
+  It checks if the array is of length one, if so, it returns, otherwise it begins
+  to split the original input array, creating empty arrays half the size and
+  populating them, recursing on each half, first heading down a single branch of the
+  recursive "break-down" tree. Once a branch is fully split, the merging is called,
+  and the arrays merge back sorted, via a comparison of the elements within, looking at
+  the frontmost element, one index at a time. Once the counter exceeds the lengths of one of
+  the list you are merging, it continues on with the list you have not finished, by adding it
+  on to the array. (The splitting continues down the next branch of the recursive tree, followed
+  by merging, and so on, until the final branch is hit, and fully merged with the previously split/sorted
+  ones, and the array is sorted.)
   BIG-OH CLASSIFICATION OF ALGORITHM:
-  <INSERT YOUR EXECUTION TIME CATEGORIZATION OF MERGESORT HERE>
+  O(n log(n))
+  //log base 2
   Mean execution times for dataset of size n:
   Batch size: <# of times each dataset size was run>
   n=1       time: 0.0
@@ -15,20 +26,20 @@
   <INSERT YOUR RESULTS ANALYSIS HERE>
   ======================================*/
 
-public class MergeSortTester 
+public class MergeSortTester
 {
     /******************************
-     * execution time analysis 
+     * execution time analysis
      * To calculate the time it takes for the function,
      * we set the beginning time as System.currentTimeMillis
      * then we find the end time by calling the same command
-     * Then we find the total time it took for mergesort by 
+     * Then we find the total time it took for mergesort by
      * subtracting beginning from end time
      ******************************/
     public static void pop(int[] j, int n){
 	for(int x=0;x<n;x++){j[n]=(int)(Math.random()*100);}
     }
-    public static void main( String[] args ) 
+    public static void main( String[] args )
     {
 	MergeSort a=new MergeSort();
 	int[] batch1={1};
@@ -40,7 +51,7 @@ public class MergeSortTester
 	int[] batch5=new int[1000000];
 	//pop(batch5, batch5.length-1);
 
-	
+
 	double beginning=System.currentTimeMillis();
 	a.sort(batch1);
 	double end=System.currentTimeMillis();
@@ -52,19 +63,19 @@ public class MergeSortTester
 	end=System.currentTimeMillis();
 	System.out.print("Time to sort length10: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.currentTimeMillis();
 	a.sort(batch3);
 	end=System.currentTimeMillis();
 	System.out.print("Time to sort length100: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.currentTimeMillis();
 	a.sort(batch4);
 	end=System.currentTimeMillis();
 	System.out.print("Time to sort length10000: " );
 	System.out.println(end-beginning);
-	
+
 	beginning=System.currentTimeMillis();
 	a.sort(batch5);
 	end=System.currentTimeMillis();
