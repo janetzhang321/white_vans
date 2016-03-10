@@ -1,3 +1,13 @@
+/*
+
+Team: White_vans
+Janet, Anton, Shamaul
+APCS2 pd5
+HW11 -- Wrapping It Up
+2016-03-11
+
+ */
+
 /*======================================
   class MergeSortTester
   ALGORITHM:
@@ -16,14 +26,17 @@
   O(n log(n))
   //log base 2
   Mean execution times for dataset of size n:
-  Batch size: <# of times each dataset size was run>
-  n=1       time: 2816.0 ns
-  n=10      time: 16128.0 ns
-  n=100     time: 189952.0 ns
+  Batch size: 10
+  n=1       time: 3660.0 ns
+  n=10      time: 21401.6 ns
+  n=100     time: 177408.0 ns
   ...
-  n=<huge>  time: 2.47575808E8 ns
+  n=<huge>  time: 168.2 ms
   ANALYSIS:
-  <INSERT YOUR RESULTS ANALYSIS HERE>
+  As the length of the data set grows, the time increases by a different factor each time.
+  from n=1 to n=10, the time increases by a factor of ~5.
+  from n=10 to n=100, the time increases by a factor of ~8.
+  Since the factor is not constant, the runtime must be greater than a linear runtime. it resembles a nlog(n) graph.
   ======================================*/
 
 public class MergeSortTester
@@ -52,7 +65,7 @@ public class MergeSortTester
 	int[] batch5=new int[1000000];
 	//pop(batch5, batch5.length-1);
 
-	
+		
 	double beginning=System.nanoTime();
 	a.sort(batch1);
 	double end=System.nanoTime();
@@ -77,9 +90,9 @@ public class MergeSortTester
 	System.out.print("Time to sort length10000: " );
 	System.out.println(end-beginning);
 	
-	beginning=System.nanoTime();
+	beginning=System.currentTimeMillis();
 	a.sort(batch5);
-	end=System.nanoTime();
+	end=System.currentTimeMillis();
 	System.out.print("Time to sort length1000000: " );
 	System.out.println(end-beginning);
 
